@@ -1,0 +1,24 @@
+
+  .legend {
+    position: absolute;
+    left: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    gap: 20px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .legend-color {
+    width: 10px;
+    height: 10px;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+  
