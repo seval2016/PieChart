@@ -2,7 +2,7 @@ import React from 'react';
 import './PieChart.css';
 import Legend from './Legend';
 import Chart from './Chart';
-import BottomPieChart from './Bottom';
+import LeftPieChart from './LeftPieChart';
 
 const PieChart = () => {
   return (
@@ -11,7 +11,7 @@ const PieChart = () => {
         <Legend />
       </div>
       <div className="left-pie-container">
-        <BottomPieChart />
+        <LeftPieChart />
       </div>
       <div className="main-pie-container">
         <Chart />

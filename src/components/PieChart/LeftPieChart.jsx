@@ -2,32 +2,33 @@ import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 const bottomData = [
-  { value: 70 },
-  { value: 15 },
-  { value: 70 },
-  { value: 30 },
+  { value: 40 },
+  { value:10 },
+  { value: 40 },
+  { value: 20 },
 ];
 
 const SMALL_COLORS = ["#F0142F", "#FF9162", "#FFC122", "#37AB96"];
 
-const BottomPieChart = () => {
+const LeftPieChart = () => {
   return (
-    <ResponsiveContainer width={800} height={800}>
+    <ResponsiveContainer width="100%" height="100%">
       <PieChart>
         <Pie
           data={bottomData}
           cx="50%"
           cy="50%"
           labelLine={false}
-          outerRadius={330}
-          innerRadius={270}
+          outerRadius="100%"
+          innerRadius="85%"
           fill="#8884d8"
           dataKey="value"
           cornerRadius={10}
-          startAngle={157}
-          endAngle={232}
+          startAngle={164}
+          endAngle={226}
           stroke="#ffffff" // White border color
           strokeWidth={2} // Border width
+         
         >
           {bottomData.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={SMALL_COLORS[index % SMALL_COLORS.length]} />
@@ -38,4 +39,4 @@ const BottomPieChart = () => {
   );
 };
 
-export default BottomPieChart;
+export default LeftPieChart;
