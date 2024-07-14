@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import './PieChart.css'; // CSS dosyasını import edin
+
 
 const data = [
   { name: "Android", value: 37 },
@@ -45,6 +47,24 @@ const renderCustomizedLabel = ({
 };
 
 const Chart = () => {
+
+   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+
+   useEffect(() => {
+     const handleResize = () => {
+       setScreenWidth(window.innerWidth);
+     };
+ 
+     window.addEventListener('resize', handleResize);
+
+     return () => {
+       window.removeEventListener('resize', handleResize);
+     };
+   }, []);
+ 
+   const cornerRadius = screenWidth > 768 ? 10 : screenWidth > 480 ? 5 : 3;
+
   return (
     <div className="chart-container">
       <ResponsiveContainer width="100%" height="100%">
@@ -57,6 +77,7 @@ const Chart = () => {
         </svg>
         <PieChart>
           <Pie
+            
             data={data}
             cx="50%"
             cy="50%"
@@ -66,7 +87,7 @@ const Chart = () => {
             innerRadius="40%"
             fill="#8884d8"
             dataKey="value"
-            cornerRadius={10}
+            cornerRadius= {cornerRadius}
             startAngle={85}
             endAngle={-273}
             stroke="#fff"

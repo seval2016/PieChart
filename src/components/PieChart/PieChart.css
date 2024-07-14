@@ -1,4 +1,3 @@
-/* Import Roboto font from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 .chart-container {
@@ -12,7 +11,7 @@
 
 .main-pie-container {
   width: 100%;
-  flex: 1; /* Takes up available space */
+  flex: 1;
   position: relative;
   display: flex;
   justify-content: center;
@@ -25,14 +24,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  font-size: 1.5vw; 
-  color: #333;
+  font-size: 1vw; 
+  color: #5A607F;
   font-weight: normal;
 }
 
 .center-text-value {
-  font-size: 2vw;
+  font-size: 1.5vw;
   font-weight: bold;
+  color:  #212023;
 }
 
 .chart-header .icon {
@@ -51,23 +51,23 @@
   z-index: 3;
 }
 
-/* Media queries for responsiveness */
+
 @media (max-width: 768px) {
   .center-text {
-    font-size: 3vw; /* Adjust font size for smaller screens */
+    font-size: 3vw;
   }
 
   .center-text-value {
-    font-size: 4vw; /* Adjust font size for smaller screens */
+    font-size: 4vw;
   }
 }
 
 @media (max-width: 480px) {
   .center-text {
-    font-size: 4vw; /* Adjust font size for very small screens */
+    font-size: 4vw;
   }
 
   .center-text-value {
-    font-size: 5vw; /* Adjust font size for very small screens */
+    font-size: 5vw; 
   }
 }

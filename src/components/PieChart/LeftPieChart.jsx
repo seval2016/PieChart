@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 const bottomData = [
@@ -11,6 +11,23 @@ const bottomData = [
 const SMALL_COLORS = ["#F0142F", "#FF9162", "#FFC122", "#37AB96"];
 
 const LeftPieChart = () => {
+  
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const cornerRadius = screenWidth > 768 ? 10 : 5;
+
   return (
     <div className="left-pie-container">
       <svg style={{ position: "absolute", width: 0, height: 0 }}>
@@ -31,13 +48,13 @@ const LeftPieChart = () => {
             innerRadius="85%"
             fill="#8884d8"
             dataKey="value"
-            cornerRadius={10}
+            cornerRadius={cornerRadius}
             startAngle={164}
             endAngle={226}
             stroke="#ffffff"
             strokeWidth={2}
-            filter="url(#shadow1)" // Apply shadow filter to the whole Pie
-            paddingAngle={1} // Add padding between slices
+            filter="url(#shadow1)"
+            paddingAngle={1}
           >
             {bottomData.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={SMALL_COLORS[index % SMALL_COLORS.length]} />
