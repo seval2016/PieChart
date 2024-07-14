@@ -43,14 +43,14 @@ const renderCustomizedLabel = ({
 const Chart = () => {
   return (
     <div className="chart-container">
+      <ResponsiveContainer width="100%" height="100%">
       <svg style={{ position: "absolute", width: 0, height: 0 }}>
         <defs>
           <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-            <feDropShadow dx="-40" dy="25" stdDeviation="10" floodColor="#311fa3" floodOpacity="0.3" />
+            <feDropShadow dx="-30" dy="10" stdDeviation="10" floodColor="#311fa3" floodOpacity="0.4" />
           </filter>
         </defs>
       </svg>
-      <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
             data={data}
@@ -72,7 +72,6 @@ const Chart = () => {
               <Cell
                 key={`cell-${index}`}
                 fill={COLORS[index % COLORS.length]}
-                style={{ opacity: index === 1 || index === 2 ? 0.5 : 1 }}
                 filter={index === 1 || index === 2 ? 'url(#shadow)' : ''}
               />
             ))}
