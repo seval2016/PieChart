@@ -10,7 +10,7 @@ const data = [
   { name: "Mac OS", value: 10 },
 ];
 
-const COLORS = ["#311fa3", "#8271EE", "#A99DF3", "#3F27D0", "#6A55EA"];
+const COLORS = ["#311fa3", "#3F27D0", "#6A55EA", "#8271EE", "#A99DF3"];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
