@@ -25,6 +25,10 @@ const renderCustomizedLabel = ({
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
+  // Responsive font size calculation
+  const screenWidth = window.innerWidth;
+  const fontSize = screenWidth > 768 ? '16px' : screenWidth > 480 ? '12px' : '10px';
+
   return (
     <text
       x={x}
@@ -32,7 +36,7 @@ const renderCustomizedLabel = ({
       fill="white"
       textAnchor="middle"
       dominantBaseline="central"
-      style={{ fontSize: "16px" }}
+      style={{ fontSize }}
     >
       <tspan x={x} dy="0em">{data[index].name}</tspan>
       <tspan x={x} dy="1.2em" fontWeight={"bold"}>{`${data[index].value}%`}</tspan>
@@ -44,13 +48,13 @@ const Chart = () => {
   return (
     <div className="chart-container">
       <ResponsiveContainer width="100%" height="100%">
-      <svg style={{ position: "absolute", width: 0, height: 0 }}>
-        <defs>
-          <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-            <feDropShadow dx="-30" dy="10" stdDeviation="10" floodColor="#311fa3" floodOpacity="0.4" />
-          </filter>
-        </defs>
-      </svg>
+        <svg style={{ position: "absolute", width: 0, height: 0 }}>
+          <defs>
+            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="-30" dy="10" stdDeviation="10" floodColor="#311fa3" floodOpacity="0.4" />
+            </filter>
+          </defs>
+        </svg>
         <PieChart>
           <Pie
             data={data}
