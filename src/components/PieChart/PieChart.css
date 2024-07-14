@@ -10,8 +10,6 @@
   font-family: "Roboto", sans-serif;
 }
 
-
-
 .main-pie-container {
   width: 100%;
   flex: 1; /* Takes up available space */
@@ -37,16 +35,18 @@
   font-weight: bold;
 }
 
-.left-pie-container {
-  position: absolute;
-  width: 100%;
-  height: 700px;
-}
-
 .chart-header .icon {
   color: #8F9AC3;
 }
 
 .chart-header h2 {
   color: #162044;
+}
+
+/*left pie container*/
+.left-pie-container {
+  position: absolute;
+  width: 100%;
+  height: 700px;
+  z-index: 3;
 }
