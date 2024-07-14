@@ -58,6 +58,8 @@ const Chart = () => {
             cornerRadius={10}
             startAngle={85}
             endAngle={-273}
+            stroke="#fff"
+            strokeWidth={2}
           >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
